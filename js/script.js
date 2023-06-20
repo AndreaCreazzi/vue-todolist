@@ -35,6 +35,7 @@ const app = createApp({
           if(!this.newTask.length) return ;
           const task = {text : this.newTask, done : false};
           this.lists.push(task);
+          this.newTask = "";
           this.$refs.input.focus(`input`);
         }
     }
