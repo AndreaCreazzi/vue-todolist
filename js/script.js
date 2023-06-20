@@ -10,6 +10,8 @@ const app = createApp({
       return {
         // collegamento new task (v-model)
         newTask : "",
+        // collegamento filterBy (v-model)
+        filterBy : "",
         // lista di cose da fare (array object)
         lists : [
             { id:1, text: "Fare una passeggiata nel parco", done: false },
@@ -25,6 +27,20 @@ const app = createApp({
         ]
       }
     },
+    computed: {
+      taskFilter(){
+        const filt = this.filterBy.toLowerCase();
+        return this.lists.filter((list) => list.text.toLowerCase().includes(filt));
+      },
+      nextId(){
+        let highId = 0;
+        this.lists.forEach((list) => {
+          if(list.id > highId)highId = list.id;
+          const nextId = ++highId;
+          return nextId
+        });
+      }
+    },
     methods: {
       // metodo per rimuovere le task
         removeTask(newId){
@@ -33,7 +49,7 @@ const app = createApp({
         // metodo per aggiungere le task
         addTask(){
           if(!this.newTask.length) return ;
-          const task = {text : this.newTask, done : false};
+          const task = {id : nextId, text : this.newTask, done : false};
           this.lists.push(task);
           this.newTask = "";
           this.$refs.input.focus(`input`);

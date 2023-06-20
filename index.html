@@ -25,9 +25,13 @@
             <div class="container mt-4">
                 <!-- messaggio fine lista -->
                 <h2 class="text-center text-danger" v-if="!lists.length">COMPLIMENTI! Hai completato tutto.</h2>
+                <!-- ricerca -->
+                <div class="mb-3">
+                    <input v-model.trim="filterBy" type="text" class="form-control" placeholder="Trova nella lista">
+                  </div>
                 <!-- lista -->
                 <ul class="list-group">
-                    <li v-for="list in lists" :key="list.id" class="list-group-item d-flex align-items-center justify-content-between" :class="{'text-decoration-line-through' : list.done}">
+                    <li v-for="list in taskFilter" :key="list.id" class="list-group-item d-flex align-items-center justify-content-between" :class="{'text-decoration-line-through' : list.done}">
                         <!-- checkbox -->
                         <input class="form-check-input me-2" v-model="list.done" type="checkbox">
                          <!--contenuto  -->
