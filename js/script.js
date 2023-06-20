@@ -49,10 +49,9 @@ const app = createApp({
         // metodo per aggiungere le task
         addTask(){
           if(!this.newTask.length) return ;
-          const task = {id : nextId, text : this.newTask, done : false};
+          const task = {id : this.nextId, text : this.newTask, done : false};
           this.lists.push(task);
           this.newTask = "";
-          this.$refs.input.focus(`input`);
         }
     }
   })

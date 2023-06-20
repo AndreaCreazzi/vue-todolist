@@ -42,7 +42,7 @@
                 </ul>
                 <!-- input aggiunta task -->
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control mt-3" placeholder="Inserisci qualcosa di nuovo da fare" aria-label="Recipient's username" aria-describedby="button-addon2" v-model.trim="newTask" ref="inputText" @keyup.enter="addTask">
+                    <input type="text" class="form-control mt-3" placeholder="Inserisci qualcosa di nuovo da fare" aria-label="Recipient's username" aria-describedby="button-addon2" v-model.trim="newTask" @keyup.enter="addTask">
                     <!-- bottone applica -->
                     <button class="btn btn-success mt-3" type="button" id="button-addon2" @click="addTask">Applica</button>
                   </div>
