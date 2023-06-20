@@ -43,13 +43,13 @@ const app = createApp({
     methods: {
       // metodo per rimuovere le task
         removeTask(newId){
-         this.lists = this.lists.filter(list => list.id !== newId);
+         this.lists= this.lists.filter(list => list.id !== newId);
         },
         // metodo per aggiungere le task
         addTask(){
           if(!this.newTask.length) return ;
           const task = {id : this.nextId, text : this.newTask, done : false};
-          this.lists.push(task);
+          this.taskFilter.push(task);
           this.newTask = "";
         }
     }
