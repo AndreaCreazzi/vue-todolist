@@ -8,6 +8,7 @@ const { createApp } = Vue
 const app = createApp({
     data() {
       return {
+        // collegamento new task (v-model)
         newTask : "",
         // lista di cose da fare (array object)
         lists : [
@@ -25,9 +26,11 @@ const app = createApp({
       }
     },
     methods: {
+      // metodo per rimuovere le task
         removeTask(newId){
          this.lists = this.lists.filter(list => list.id !== newId);
         },
+        // metodo per aggiungere le task
         addTask(){
           if(!this.newTask.length) return ;
           const task = {text : this.newTask, done : false};
