@@ -25,16 +25,18 @@ const app = createApp({
       }
     },
     methods: {
-        removeTask(){
-          // this.lists.filter(list => list.id !== newId)
-        return this.lists.splice()
+        removeTask(newId){
+         this.lists = this.lists.filter(list => list.id !== newId);
         },
         addTask(){
+          if(!this.newTask.length) return ;
           const task = {text : this.newTask, done : false};
-          this.lists.push(task)
+          this.lists.push(task);
+          this.$refs.input.focus(`input`);
         }
     }
   })
   
 // Stampa Vue
   app.mount('#root');
+  

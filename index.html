@@ -21,22 +21,22 @@
     <div id="root">
         <main>
             <!-- titolo -->
-            <h1 class="text-center text-danger">Lista di cose da fare:</h1>
+            <h1 class="text-center text-warning">Lista di cose da fare:</h1>
             <div class="container mt-4">
                 <!-- lista -->
                 <ul class="list-group">
-                    <li v-for="(list , i) in lists" class="list-group-item d-flex align-items-center justify-content-between" :class="{'text-decoration-line-through' : list.done}">
+                    <li v-for="list in lists" :key="list.id" class="list-group-item d-flex align-items-center justify-content-between" :class="{'text-decoration-line-through' : list.done}">
                         <!-- checkbox -->
                         <input class="form-check-input me-2" v-model="list.done" type="checkbox">
                          <!--contenuto  -->
                         {{list.text}}
                         <!-- bottone close -->
-                        <button type="button" class="btn-close" aria-label="Close" @click="removeTask"></button>
+                        <button type="button" class="btn-close" aria-label="Close" @click="removeTask(list.id)"></button>
                     </li>
                 </ul>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control mt-3" placeholder="Inserisci qualcosa di nuovo da fare" aria-label="Recipient's username" aria-describedby="button-addon2" v-model.trim="newTask">
-                    <button class="btn btn-success mt-3" type="button" id="button-addon2" @click="addTask(i)">Applica</button>
+                    <input type="text" class="form-control mt-3" placeholder="Inserisci qualcosa di nuovo da fare" aria-label="Recipient's username" aria-describedby="button-addon2" v-model.trim="newTask" ref="inputText" @keyup.enter="addTask">
+                    <button class="btn btn-success mt-3" type="button" id="button-addon2" @click="addTask">Applica</button>
                   </div>
             </div>
         </main>
