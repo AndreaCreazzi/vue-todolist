@@ -35,9 +35,8 @@ const app = createApp({
       nextId(){
         let highId = 0;
         this.lists.forEach((list) => {
-          if(list.id > highId)highId = list.id;
-          const nextId = ++highId;
-          return nextId
+          if(list.id > highId) highId = list.id;
+          return highId++;
         });
       }
     },
