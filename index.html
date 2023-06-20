@@ -23,6 +23,8 @@
             <!-- titolo -->
             <h1 class="text-center text-warning">Lista di cose da fare:</h1>
             <div class="container mt-4">
+                <!-- messaggio fine lista -->
+                <h2 class="text-center text-danger" v-if="!lists.length">COMPLIMENTI! Hai completato tutto.</h2>
                 <!-- lista -->
                 <ul class="list-group">
                     <li v-for="list in lists" :key="list.id" class="list-group-item d-flex align-items-center justify-content-between" :class="{'text-decoration-line-through' : list.done}">
